@@ -21,13 +21,18 @@ export class NotFoundError extends AppError {
 }
 
 // 500 — errores de entidades específicas
-export class UserError extends AppError {
+export class StudentError extends AppError {
     constructor(message, details, statusCode) {
-        super(message || 'Error en User', statusCode || 500, details);
+        super(message || 'Error en Student', statusCode || 500, details);
     }
 }
 
-// TODO Agrega aquí una clase por cada entidad (ProductError, OrderError, etc.)
+// 500 — errores de entidades específicas
+export class LabError extends AppError {
+    constructor(message, details, statusCode) {
+        super(message || 'Error en Lab', statusCode || 500, details);
+    }
+}
 
 // 500 — errores de base de datos
 export class DBError extends AppError {
