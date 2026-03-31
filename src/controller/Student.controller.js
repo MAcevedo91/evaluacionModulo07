@@ -1,4 +1,4 @@
-import { StudentService } from "../service/server/Student.service.js";
+import { StudentService } from "../service/Student.service.js";
 
 export class StudentController {
     

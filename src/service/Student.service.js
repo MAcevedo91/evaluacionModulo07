@@ -1,6 +1,6 @@
-import { Student } from "../../models/Student.model";
-import { NotFoundError, StudentError } from "../../utils/errors.util.js";
-import { Logger } from "../../utils/logger.js";
+import { Student } from "../models/Student.model.js";
+import { NotFoundError, StudentError } from "../utils/errors.util.js";
+import { Logger } from "../utils/logger.js";
 
 
 export class StudentService {

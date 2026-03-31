@@ -1,7 +1,7 @@
-import { Lab } from "../../models/Lab.model.js";
-import { Student } from "../../models/Student.model.js";
-import { LabError, NotFoundError } from "../../utils/errors.util.js";
-import { Logger } from "../../utils/logger.js";
+import { Lab } from "../models/Lab.model.js";
+import { Student } from "../models/Student.model.js";
+import { LabError, NotFoundError } from "../utils/errors.util.js";
+import { Logger } from "../utils/logger.js";
 
 
 export class LabService {

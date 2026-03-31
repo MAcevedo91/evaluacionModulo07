@@ -1,4 +1,4 @@
-import { LabService } from "../service/server/Lab.service.js";
+import { LabService } from "../service/Lab.service.js";
 
 export class LabController {
 
