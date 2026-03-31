@@ -1,4 +1,4 @@
-import { Logger } from "sequelize/lib/utils/logger";
+import { Logger } from "../../utils/logger.js";
 import { dbConfig } from "../../config/db.config.js";
 import { defineAssociation } from "../../models/association/StudentLab.association.js";
 import { initStudent } from "../../models/Student.model.js";
@@ -11,7 +11,7 @@ export class DB {
     static async init() {
         try {
             this.logger.info('Inicializando base de datos')
-            this.logger.debugContext('Comenzando Autenticación en DB')
+            this.logger.debug('Comenzando Autenticación en DB')
 
             await dbConfig.authenticate()
             this.logger.debug('Autenticación exitosa')
@@ -22,7 +22,7 @@ export class DB {
             await dbConfig.sync()
             this.logger.info('Sincronización completa')
         } catch (error) {
-            this.logger.error('No pudimos conectarnos a la base de datos', error)
+            this.logger.error(`No pudimos conectarnos a la base de datos: ${error.message}`)
             process.exit(1)
         }
     }

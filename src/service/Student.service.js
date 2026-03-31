@@ -102,14 +102,19 @@ export class StudentService {
             const student = await Student.findByPk(id)
     
             if(!student){
-                this.logger.error(`No enconstramos al estudiante con ID: ${ id } - ${error.massage}`)
-                throw new NotFoundError(`No enconstramos al estudiante con ID: ${ id }`)
+                this.logger.error(`No encontramos al estudiante con ID: ${ id }`)
+                throw new NotFoundError(`No encontramos al estudiante con ID: ${ id }`)
             }
     
             this.logger.debug('Estudiante encontrado con éxito')
     
             await student.destroy();
-            
+
+            // Recargamos con paranoid:false para obtener el deletedAt actualizado
+            await student.reload({ paranoid: false })
+            this.logger.warn(`Estudiante con ID: ${id} eliminado lógicamente`)
+
+            return student
         } catch (error) {
             this.logger.error("Error al intentar eliminar al estudiante");
             throw new StudentError("Error al eliminar al estudiante");

@@ -1,8 +1,9 @@
 import express, { urlencoded } from "express";
+import cors from 'cors';
 import { env } from '../../config/env.config.js';
 import { Logger } from '../../utils/logger.js';
 import { httpLogger } from '../../middlewares/logger.middleware.js';
-import { DB } from '../../routes/index.js';
+import { DB } from '../db/DB.service.js';
 import appRouter from '../../routes/index.js';
 import { errorHandler } from '../../middlewares/error.middleware.js';
 
@@ -20,6 +21,7 @@ export class Server {
             ? this.logger.info('Servidor inicializando en producción')
             : this.logger.info('Servidor inicializando en modo desarrollo')
 
+        this.app.use(cors())
         this.app.use(express.json())
 
         if(config.multiFormat) {

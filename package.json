@@ -2,10 +2,10 @@
   "name": "evamodulo07",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node src/main.js",
+    "dev": "nodemon src/main.js"
   },
   "keywords": [],
   "author": "Marcelo Acevedo",

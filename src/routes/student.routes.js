@@ -8,7 +8,7 @@ router.get('/', StudentController.getAllStudents);
 router.get('/:id', StudentController.findById);
 router.put('/:id', StudentController.updateStudent);
 router.delete('/:id', StudentController.deleteStudent);
-router.delete('/:id', StudentController.forceDeleteStudent);
-router.patch('/:id', StudentController.restoreStudent);
+router.delete('/:id/permanent', StudentController.forceDeleteStudent);
+router.patch('/:id/restore', StudentController.restoreStudent);
 
 export default router

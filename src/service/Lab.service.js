@@ -112,9 +112,12 @@ export class LabService {
             this.logger.debug('Laboratorio encontrado con éxito')
 
             await lab.destroy()
+
+            // Recargamos con paranoid:false para obtener el deletedAt actualizado
+            await lab.reload({ paranoid: false })
             this.logger.warn(`Laboratorio con ID: ${id} eliminado lógicamente`)
 
-            return { message: `Laboratorio con ID ${id} eliminado correctamente` }
+            return lab
         } catch (error) {
             this.logger.error(`Error al eliminar el laboratorio: ${error.message}`)
             throw new LabError('Error al eliminar el laboratorio')
