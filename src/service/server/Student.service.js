@@ -7,7 +7,7 @@ export class StudentService {
 
     static logger = new Logger('STUDENT_SERVICE')
 
-    static async create(data)  {
+    static async createStudent(data)  {
         try {
             this.logger.info('Inicializando servicio de creación de Student')
 
@@ -20,7 +20,7 @@ export class StudentService {
         }
     }
 
-    static async findAll() {
+    static async getAllStudents() {
         try {
             this.logger.info('Iniciando servicio de obtención de estudiantes');
             const student = await Student.findAll({
