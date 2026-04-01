@@ -28,7 +28,6 @@ export class Logger {
         const minutes = pad(date.getMinutes());
         const seconds = pad(date.getSeconds());
 
-        // Retorna la fecha formateada como "AAAA-MM-DD -- HH:MM:SS"
         return `${year}-${month}-${day} -- ${hours}:${minutes}:${seconds}`
     }
 
